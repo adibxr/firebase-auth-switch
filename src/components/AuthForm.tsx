@@ -58,34 +58,34 @@ export const AuthForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-primary via-primary-glow to-purple-600">
-      <div className="w-full max-w-md">
-        <Card className="auth-card backdrop-blur-sm border-white/20 shadow-2xl">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-primary via-primary-glow to-purple-600 animate-fade-in">
+      <div className="w-full max-w-md animate-scale-in">
+        <Card className="auth-card backdrop-blur-sm border-white/20 shadow-2xl hover:shadow-primary/25 transition-all duration-500 hover:scale-[1.02]">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <CardHeader className="space-y-1 pb-6">
+            <CardHeader className="space-y-1 pb-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
               <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center animate-bounce-subtle shadow-lg">
                   <Lock className="w-6 h-6 text-primary-foreground" />
                 </div>
               </div>
-              <TabsList className="grid w-full grid-cols-2 bg-muted/50">
-                <TabsTrigger value="signin" className="text-sm font-medium">Sign In</TabsTrigger>
-                <TabsTrigger value="signup" className="text-sm font-medium">Sign Up</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 bg-muted/50 animate-fade-in" style={{animationDelay: '0.3s'}}>
+                <TabsTrigger value="signin" className="text-sm font-medium transition-all duration-300 hover:scale-105">Sign In</TabsTrigger>
+                <TabsTrigger value="signup" className="text-sm font-medium transition-all duration-300 hover:scale-105">Sign Up</TabsTrigger>
               </TabsList>
             </CardHeader>
 
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
               <TabsContent value="signin" className="space-y-4 m-0">
                 <form onSubmit={handleSignIn} className="space-y-4">
-                  <div className="space-y-2">
+                  <div className="space-y-2 transform transition-all duration-300 hover:scale-[1.02]">
                     <Label htmlFor="signin-email">Email</Label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <div className="relative group">
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors duration-200" />
                       <Input
                         id="signin-email"
                         type="email"
                         placeholder="Enter your email"
-                        className="pl-10"
+                        className="pl-10 transition-all duration-300 focus:scale-[1.02] hover:shadow-md"
                         value={signInData.email}
                         onChange={(e) => setSignInData({ ...signInData, email: e.target.value })}
                         required
@@ -93,15 +93,15 @@ export const AuthForm = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 transform transition-all duration-300 hover:scale-[1.02]">
                     <Label htmlFor="signin-password">Password</Label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <div className="relative group">
+                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors duration-200" />
                       <Input
                         id="signin-password"
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Enter your password"
-                        className="pl-10 pr-10"
+                        className="pl-10 pr-10 transition-all duration-300 focus:scale-[1.02] hover:shadow-md"
                         value={signInData.password}
                         onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                         required
@@ -109,7 +109,7 @@ export const AuthForm = () => {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+                        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
                       >
                         {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                       </button>
@@ -163,7 +163,7 @@ export const AuthForm = () => {
                     </Dialog>
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={loading}>
+                  <Button type="submit" className="w-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg animate-pulse-subtle" disabled={loading}>
                     {loading ? 'Signing in...' : 'Sign In'}
                   </Button>
                 </form>
@@ -245,7 +245,7 @@ export const AuthForm = () => {
                 <Button 
                   variant="outline" 
                   onClick={signInWithGoogle}
-                  className="w-full"
+                  className="w-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   disabled={loading}
                 >
                   <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
